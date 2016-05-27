@@ -1,0 +1,16 @@
+{
+    "name": "wip/interview_prep",
+    "description": "Interview Preparation for bulgarian schools and universities",
+    "type": "das",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ivelin Pavlov",
+            "email": "ibpavlov@gmail.com"
+        }
+    ],
+    "minimum-stability": "alpha",
+    "require": {
+        "twbs/bootstrap": "^3.3"
+    }
+}
