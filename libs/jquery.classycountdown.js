@@ -310,11 +310,11 @@
                             },
                             seconds: {
                                 gauge: {
-                                    thickness: 0.12,
-                                    bgColor: "rgba(0,0,0,0.15)",
+                                    thickness: 0.18,
+                                    bgColor: "rgba(0,0,0,0.4)",
                                     fgColor: "#f39c12"
                                 },
-                                textCSS: 'font-family:\'Open Sans\';font-weight:300;color:#8ec128;'
+                                textCSS: 'font-family:\'Open Sans\';font-weight:400;color:#f39c12;text-transform:uppercase;'
                             }
                         }
                     };

@@ -71,6 +71,8 @@ $('#scene').parallax();
 
 //### ICONS ACTIONS
 $(".iconcluster").click(function(){
+$(".mainspan").css("display", "none");
+    
 $(this).addClass("center ");
 $(".iconmain").addClass(" animated zoomIn").css("cursor","default").css("z-index",1);
 $(" .innericon").addClass(" animated zoomIn").css("opacity",1);
