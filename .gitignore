@@ -1,2 +1,5 @@
 /vendor/
 .idea/
+app/cache/
+app/config/config.php
+public/uploads/

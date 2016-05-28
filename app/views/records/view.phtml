@@ -1,0 +1,41 @@
+<?php
+/**
+ * @var \Phalcon\Mvc\View\Engine\Php $this
+ */
+?>
+
+<div class="row">
+    <nav>
+        <ul class="pager">
+            <li class="previous"><?php echo $this->tag->linkTo(array("records", "Back")) ?></li>
+        </ul>
+    </nav>
+</div>
+
+
+
+<div class="row">
+    <label for="fieldName" class="col-sm-2 ">
+
+<div class="page-header">
+    <h1>
+        View record 
+    </h1>
+    <h5>
+        <?php echo $record->name ?>
+    </h5>
+</div>
+
+    </label>
+    <div class="col-sm-10">
+        <video  controls id="video" preload="metadata">
+            <source src="<?php echo $record->file ?>">
+            <?php if(!empty($record->subtitles)): ?>
+            <track label="Въпроси" kind="subtitles" srclang="bg" src="<?php echo $record->subtitles?>" default>
+            <?php endif; ?>
+        </video>
+    </div>
+</div>
+
+
+<?php echo $this->getContent(); ?>

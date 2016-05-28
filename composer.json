@@ -11,6 +11,7 @@
     ],
     "minimum-stability": "alpha",
     "require": {
-        "twbs/bootstrap": "^3.3"
+        "twbs/bootstrap": "^3.3",
+        "phalcon/devtools": "^2.0"
     }
 }
