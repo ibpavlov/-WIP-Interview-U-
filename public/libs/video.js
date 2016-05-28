@@ -21,6 +21,8 @@ jQuery(document).ready(function() {
     });
 
 
+
+
     var successCallback = function (stream) {
         console.log("Success");
         // RecordRTC usage goes here
@@ -47,7 +49,32 @@ jQuery(document).ready(function() {
             subtitles = new Array();
             subtitles.push("test");
             recordRTC.startRecording();
+            showNextQuestion();
+               
         }
+
+
+    };
+
+    var questions = new Array(1,2,3,4);
+    var iter = 0;
+    var showNextQuestion = function() {
+        if(questions.length <= iter) {
+            iter = 0;   
+        }
+        showQuestion("Въпрос " + questions[iter++]);
+        $('.countdown').html('').ClassyCountdown({
+            theme: "flat-colors-very-wide",
+            end: $.now() + 61,
+            onEndCallback: function(){
+                showNextQuestion();
+            }
+        });
+    };
+
+    var showQuestion = function (question) {
+        $('.qtext > p').html(question+"<br /><br />");
+        subtitles.push(question);
     };
 
     var stopRecording = function () {
@@ -59,8 +86,9 @@ jQuery(document).ready(function() {
         subtitles.push("test2");
 
         recordRTC.stopRecording(function(videoURL) {
-            video.attr('src',videoURL);
-            video.show();
+            //video.attr('src',videoURL);
+            //video.show();
+            $('.progressWrapper').show();
 
             var recordedBlob = recordRTC.getBlob();
             recordRTC.getDataURL(function(dataURL) {
@@ -80,6 +108,9 @@ jQuery(document).ready(function() {
                         var text2 = '<track label="Въпроси" kind="subtitles" srclang="bg" src="'+file.subtitles+'" default>';
                         video.html(text2);
                     }
+                    $('.progressWrapper').hide();
+                    $('.interviewwindow').hide();
+                    video.show();
                     video.attr('src',file.video);
                     window.open(location.href + fName);
                 });

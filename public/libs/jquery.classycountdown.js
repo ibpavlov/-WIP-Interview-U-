@@ -23,7 +23,7 @@
                     days: 'Days',
                     hours: 'Hours',
                     minutes: 'Minutes',
-                    seconds: 'Seconds'
+                    seconds: 'Секунди'
                 },
                 style: 'font-size: 0.5em;'
             },
@@ -80,7 +80,7 @@
         setInterval(doTick, 1000);
         doResponsive();
         function prepare() {
-            element.append('<div class="ClassyCountdown-wrapper">' +
+            element.html('<div class="ClassyCountdown-wrapper">' +
                     '<div class="ClassyCountdown-days">' +
                         '<input type="text" />' +
                         '<span class="ClassyCountdown-value"><div></div><span></span></span>' +
@@ -154,10 +154,11 @@
                     isFired = true;
                     settings.onEndCallback();
                 }
+                isFired = false;
                 DaysLeft = 0;
                 HoursLeft = 0;
                 MinutesLeft = 0;
-                SecondsLeft = 0;
+                SecondsLeft = 60;
             }
             element.find('.ClassyCountdown-days input').val(365 - DaysLeft).trigger('change');
             element.find('.ClassyCountdown-hours input').val(24 - HoursLeft).trigger('change');

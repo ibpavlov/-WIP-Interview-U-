@@ -90,16 +90,7 @@ $(".iconsholder").children().not(".center").addClass("dissapear").delay(400).que
 
 });
 
-
-
-$('.countdown').ClassyCountdown({
-    theme: "flat-colors-very-wide",
-    end: $.now() + 60,
-    onEndCallback: function(){
-        //alert("asdsadasd");
-    }
-});
-         
+      
 
 
 });//end dready
