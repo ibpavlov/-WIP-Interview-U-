@@ -17,14 +17,15 @@ class RecordsController extends ControllerBase
     /**
      * Searches for records
      */
-    public function searchAction()
+    public function searchAction($numberPage = 1)
     {
-        $numberPage = 1;
         if ($this->request->isPost()) {
             $query = Criteria::fromInput($this->di, 'Records', $_POST);
             $this->persistent->parameters = $query->getParams();
         } else {
-            $numberPage = $this->request->getQuery("page", "int");
+            if($this->request->hasQuery("page")) {
+                $numberPage = $this->request->getQuery("page", "int",1);
+            }
         }
 
         $parameters = $this->persistent->parameters;
@@ -267,6 +268,7 @@ class RecordsController extends ControllerBase
 
     public function ajaxAction()
     {
+        $this->view->disable();
         foreach(array('video', 'audio') as $type) {
             if (isset($_FILES["${type}-blob"])) {
 
@@ -290,6 +292,7 @@ class RecordsController extends ControllerBase
                         $subPath = $uploadDirectory.$fileName.".vtt";
                         $myfile = fopen($subPath, "w");
                         if($myfile !== false) {
+                            fwrite($myfile, "WEBVTT FILE\n\n");
                             foreach($array as $nr => $row) {
                                 fwrite($myfile, $nr."\n");
                                 if($nr < 10)  {
@@ -318,7 +321,16 @@ class RecordsController extends ControllerBase
                         }
                     } else {
 
-                        echo "Successfuly uploaded video with ID (".$record->id."). You can see it at: ".$record->file;
+                        $json = array(
+                            "video" => $record->file
+                        );
+                        if(isset($record->subtitles) && !empty($record->subtitles)) {
+                            $json['subtitles'] = $record->subtitles;
+                        }
+                        $this->response->setContent(json_encode($json));
+                        return $this->response;
+
+                        //echo "Successfuly uploaded video with ID (".$record->id."). You can see it at: ".$record->file;
                     }
                 }
 

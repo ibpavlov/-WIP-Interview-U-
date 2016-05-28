@@ -64,9 +64,9 @@
         <nav>
             <ul class="pagination">
                 <li><?php echo $this->tag->linkTo("records/search", "First") ?></li>
-                <li><?php echo $this->tag->linkTo("records/search?page=" . $page->before, "Previous") ?></li>
-                <li><?php echo $this->tag->linkTo("records/search?page=" . $page->next, "Next") ?></li>
-                <li><?php echo $this->tag->linkTo("records/search?page=" . $page->last, "Last") ?></li>
+                <li><?php echo $this->tag->linkTo("records/search/" . $page->before, "Previous") ?></li>
+                <li><?php echo $this->tag->linkTo("records/search/" . $page->next, "Next") ?></li>
+                <li><?php echo $this->tag->linkTo("records/search/" . $page->last, "Last") ?></li>
             </ul>
         </nav>
     </div>

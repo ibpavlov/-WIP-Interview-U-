@@ -130,6 +130,7 @@ var stopRecording = function () {
             formData.append(fileType + '-subtitles', JSON.stringify(subtitles));
 
             xhr('ajax', formData, function (fName) {
+                console.log(fName);
                 window.open(location.href + fName);
             });
          });

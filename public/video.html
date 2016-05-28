@@ -38,8 +38,18 @@
 
 
     <script src="libs/jquery.classycountdown.js"></script>
-<script src="libs/jquery.knob.js"></script>
-<script src="libs/jquery.throttle.js"></script>
+    <script src="libs/jquery.knob.js"></script>
+    <script src="libs/jquery.throttle.js"></script>
+
+    <script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
+    <script src="https://cdn.webrtc-experiment.com/gif-recorder.js"></script>
+    <script src="https://cdn.webrtc-experiment.com/getScreenId.js"></script>
+
+    <!-- for Edige/FF/Chrome/Opera/etc. getUserMedia support -->
+    <script src="https://cdn.webrtc-experiment.com/gumadapter.js"></script>
+    <!-- for Edige/FF/Chrome/Opera/etc. getUserMedia support -->
+
+    <script src="libs/video.js"></script> 
 
 
 
@@ -106,12 +116,18 @@
     <p>Тук питаме неLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
     nt mollit anim id est laborum.шо </p>
+
+    <button type="button" id="startRecordingBtn" class="btn btn-default">Start Recording</button>
+    <button type="button" id="stopRecordingBtn" class="btn btn-default">End Recording</button>
+
+
     </div>
 </div>
 
 </div>
 
 </div>
+<video controls muted id="videoPlayer"></video>
 
 
 
