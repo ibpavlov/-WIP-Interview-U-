@@ -7,6 +7,10 @@
         {
             "name": "Ivelin Pavlov",
             "email": "ibpavlov@gmail.com"
+        },
+        {
+            "name": "Vladimir Papazov",
+            "email": "papazov_vladimir@abv.bg"
         }
     ],
     "minimum-stability": "alpha",
