@@ -120,6 +120,7 @@ nav {
 }
 .iconcluster {
   margin: 20px;
+  margin-top: 40px;
   position: relative;
   width: 200px;
   height: 200px;
@@ -135,15 +136,15 @@ nav {
 .iconcluster .mainspan {
   display: inline-block;
   position: absolute;
-  bottom: -25px;
+  bottom: -33px;
   left: 0;
   text-align: center;
   width: 100%;
   color: #0cd585;
   z-index: 1;
   color: #ffffff;
-  background: #38bb6b;
-  border: 1px solid white;
+  font-family: 'Lobster', sans-serif;
+  font-size: 2rem;
   border-radius: 8px;
   padding: 6px;
 }

@@ -140,7 +140,7 @@ $('.generalclock').ClassyCountdown({
 });
     
 
-
+$('#questionmodal').modal();
 
 });//#################end dready
 
