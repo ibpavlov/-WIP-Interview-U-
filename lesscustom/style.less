@@ -810,12 +810,13 @@ display: none;
 	background-size:cover;
 	display: block;
 	margin: 0 auto;
-	animation:  jump 2s ease infinite,
+	animation:  jump 2s ease infinite;
+	position:relative;
 }
 
 
 @keyframes jump {
-  0%   { margin-top: 0; }
-  50% { margin-top: 5px; }
-  100% { margin-top: 0px; }
+  0%   {top: 0; }
+  50% {top: 5px; }
+  100% { top: 0px; }
 }
