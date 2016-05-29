@@ -90,7 +90,19 @@ $(".iconsholder").children().not(".center").addClass("dissapear").delay(400).que
 
 });
 
-      
+   
+
+
+
 
 
 });//end dready
+
+
+
+
+//modal video is clicked
+var action=function(){
+
+
+};

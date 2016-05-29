@@ -493,3 +493,69 @@ nav {
   height: auto;
   display: block;
 }
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #0cd585;
+}
+.modal-backdrop.in {
+  opacity: 1;
+}
+.modal-content {
+  position: relative;
+  background-color: #333333;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  outline: 0;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+}
+.modal-footer {
+  padding: 15px;
+  text-align: right;
+  border-top: 1px solid #0cd585;
+}
+@media (min-width: 768px) {
+  .modal-dialog {
+    width: 80%;
+    margin: 30px auto;
+  }
+}
+.modal img {
+  width: 20%;
+  display: block;
+  margin: 0 auto;
+  min-width: 100px;
+}
+.modal h1 {
+  font-family: 'Lobster', sans-serif;
+  color: #ffffff;
+  text-align: center;
+}
+.modal h2 {
+  font-family: 'Lobster', sans-serif;
+  color: #ffffff;
+  text-align: center;
+  font-size: 2rem;
+}
+.modal p {
+  text-align: left;
+  width: 80%;
+  margin: 10px auto;
+  font-size: 1.3rem;
+  line-height: 1.4rem;
+}
+.modal button {
+  width: 100px;
+  text-align: center;
+  font-family: 'Lobster', sans-serif;
+  margin: 10px auto;
+  display: block;
+}

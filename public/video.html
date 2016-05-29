@@ -70,12 +70,57 @@
 
 <nav>
 <div class="container">
-<div class="logoholder"><a href="index.html">Iterview-U</a></div>
+<div class="logoholder"><a href="index.html">Interview-U</a></div>
 <a class="back" href="index.html"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>
  Начало</a>
 </div>
 </nav>
 <!--NAV ENDS-->
+
+
+
+<script type="text/javascript">
+ jQuery(document).ready(function() { 
+//====modal before video interview
+$('#videomodal').modal();
+ }); 
+
+</script>
+
+
+
+
+
+<!--VIDEO MODAL-->
+<div id="videomodal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    
+      <div class="modal-body">
+   
+<img src="images/camera.png" alt="camera">
+<h1>Преди да започнете</h1>
+<p>Това е симулация на реално интервю. Тук ще ви бъдат зададени въпроси, на които може да се наложи да отговаряте по време на истинското интервю с реален чоек. Целта на тази секция е да тренирате поведението си, като се стремите да избягвате излишни жестове или ненужни паразитни думи и изрази. Запишете се на видео и вижте как изглеждате в очите на събеседника си. По време на записа имате на разположение 60 секунди, да говорите по зададения въпрос.</p>
+
+<h2>Ако сте готови, натиснете "Начало". Интервюто започва.</h2>
+       <button onclick="action()" type="button" class="btn btn-default" data-dismiss="modal">Начало</button>
+
+      </div>
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+
+
+
+
+
+
+
+
+
 
 
 
