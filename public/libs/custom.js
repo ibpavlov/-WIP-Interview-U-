@@ -84,9 +84,10 @@ jQuery(document).ready(function() {
 jQuery(document).ready(function() { 
 
 var winheight = $("html").height();
+var rwinheight = $(window).height();
 var navheight= $("nav").height();
 
-
+$(".maintitle").css("margin-top",rwinheight /2);
 
 //##### parallax init
 $('#scene').parallax();
@@ -140,7 +141,7 @@ $('.generalclock').ClassyCountdown({
 });
     
 
-$('#questionmodal').modal();
+
 
 });//#################end dready
 
@@ -157,3 +158,27 @@ var action=function(){
 
 
 };
+
+
+
+
+
+
+//smooth scroll
+jQuery(document).ready(function() {
+
+ $(".scroll").click(function(event){
+         event.preventDefault();
+         //calculate destination place
+         var dest=0;
+         if($(this.hash).offset().top > $(document).height()-$(window).height()){
+              dest=$(document).height()-$(window).height();
+         }else{
+              dest=$(this.hash).offset().top + 300; 
+         }
+         //go to destination
+         $('html,body').animate({scrollTop:dest}, 1000,'swing');
+     });
+
+
+});
