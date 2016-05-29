@@ -5,9 +5,9 @@
 ?>
 
 <div class="row">
-    <nav>
+    <nav2>
         <ul class="pager">
-            <li class="previous"><?php echo $this->tag->linkTo(array("records", "Back")) ?></li>
+            <li class="previous"><?php echo $this->tag->linkTo(array("records", "Назад","style"=>"color: green;")) ?></li>
         </ul>
     </nav>
 </div>
@@ -19,7 +19,7 @@
 
 <div class="page-header">
     <h1>
-        View record 
+        Запиши видео
     </h1>
     <h5>
         <?php echo $record->name ?>

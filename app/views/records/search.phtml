@@ -7,16 +7,16 @@
 <?php use Phalcon\Tag; ?>
 
 <div class="row">
-    <nav>
+    <nav2>
         <ul class="pager">
-            <li class="previous"><?php echo $this->tag->linkTo(array("records/index", "Go Back")); ?></li>
-            <li class="next"><?php echo $this->tag->linkTo(array("records/new", "Create ")); ?></li>
+            <li class="previous"><?php echo $this->tag->linkTo(array("records/index", "Назад","style"=>"color: green;")); ?></li>
+            <li class="next"><?php echo $this->tag->linkTo(array("records/new", "Създай","style"=>"color: green;")); ?></li>
         </ul>
     </nav>
 </div>
 
 <div class="page-header">
-    <h1>Search result</h1>
+    <h1>Резултати</h1>
 </div>
 
 <?php echo $this->getContent(); ?>
@@ -25,11 +25,11 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Id</th>
-            <th>Name (File)</th>
-            <th>Type</th>
+                <th>№</th>
+            <th>Име (Файл)</th>
+            <th>Тип</th>
             <th>IP</th>
-            <th>Created</th>
+            <th>Създаден на</th>
 
                 <th></th>
                 <th></th>
@@ -45,9 +45,9 @@
             <td><?php echo $record->ip ?></td>
             <td><?php echo $record->created ?></td>
 
-                <td><?php echo $this->tag->linkTo(array("records/view/" . $record->id, "View")); ?></td>
-                <td><?php echo $this->tag->linkTo(array("records/edit/" . $record->id, "Edit")); ?></td>
-                <td><?php echo $this->tag->linkTo(array("records/delete/" . $record->id, "Delete")); ?></td>
+                <td><?php echo $this->tag->linkTo(array("records/view/" . $record->id, "Преглед")); ?></td>
+                <td><?php echo $this->tag->linkTo(array("records/edit/" . $record->id, "Редакция")); ?></td>
+                <td><?php echo $this->tag->linkTo(array("records/delete/" . $record->id, "Изтрий")); ?></td>
             </tr>
         <?php endforeach; ?>
         </tbody>
@@ -61,12 +61,12 @@
         </p>
     </div>
     <div class="col-sm-11">
-        <nav>
+        <nav2>
             <ul class="pagination">
-                <li><?php echo $this->tag->linkTo("records/search", "First") ?></li>
-                <li><?php echo $this->tag->linkTo("records/search/" . $page->before, "Previous") ?></li>
-                <li><?php echo $this->tag->linkTo("records/search/" . $page->next, "Next") ?></li>
-                <li><?php echo $this->tag->linkTo("records/search/" . $page->last, "Last") ?></li>
+                <li><?php echo $this->tag->linkTo("records/search", "Първа") ?></li>
+                <li><?php echo $this->tag->linkTo("records/search/" . $page->before, "Предишна") ?></li>
+                <li><?php echo $this->tag->linkTo("records/search/" . $page->next, "Следваща") ?></li>
+                <li><?php echo $this->tag->linkTo("records/search/" . $page->last, "Последна") ?></li>
             </ul>
         </nav>
     </div>
