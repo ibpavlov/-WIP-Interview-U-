@@ -1,3 +1,28 @@
+    
+//scrollTO
+
+$.fn.scrollTo = function( target, options, callback ){
+  if(typeof options == 'function' && arguments.length == 2){ callback = options; options = target; }
+  var settings = $.extend({
+    scrollTarget  : target,
+    offsetTop     : 50,
+    duration      : 500,
+    easing        : 'swing'
+  }, options);
+  return this.each(function(){
+    var scrollPane = $(this);
+    var scrollTarget = (typeof settings.scrollTarget == "number") ? settings.scrollTarget : $(settings.scrollTarget);
+    var scrollY = (typeof scrollTarget == "number") ? scrollTarget : scrollTarget.offset().top + scrollPane.scrollTop() - parseInt(settings.offsetTop);
+    scrollPane.animate({scrollTop : scrollY }, parseInt(settings.duration), settings.easing, function(){
+      if (typeof callback == 'function') { callback.call(this); }
+    });
+  });
+}
+
+
+
+
+
     /*-------------------------------------------------*/
     /* =  browser detect
     /*-------------------------------------------------*/
@@ -71,6 +96,12 @@ $('#scene').parallax();
 
 //### ICONS ACTIONS
 $(".iconcluster").click(function(){
+
+
+//scroll to where it needs to be
+$('body').scrollTo(".iconcluster");
+
+
 $(".mainspan").css("display", "none");
     
 $(this).addClass("center ");
@@ -93,16 +124,36 @@ $(".iconsholder").children().not(".center").addClass("dissapear").delay(400).que
    
 
 
+//initialize carousel
+//IQ carousel
+
+$('.carousel').carousel({
+    pause: true,
+    interval: false
+});
+
+
+//general questions timer
+$('.generalclock').ClassyCountdown({
+    theme: "flat-colors-very-wide",
+    end: $.now() + 10000
+});
+    
 
 
 
-});//end dready
+});//#################end dready
 
 
 
 
 //modal video is clicked
 var action=function(){
+
+
+
+
+
 
 
 };
