@@ -7,14 +7,14 @@
 <div class="row">
     <nav2>
         <ul class="pager">
-            <li class="previous"><?php echo $this->tag->linkTo(array("records", "Назад","style"=>"color: green;")) ?></li>
+            <li class="previous"><?php echo $this->tag->linkTo(array("questions", "Назад","style"=>"color: green;")) ?></li>
         </ul>
     </nav>
 </div>
 
 <div class="page-header">
     <h1>
-        Редактирай записа
+        Редактирай въпрос
     </h1>
 </div>
 
@@ -23,7 +23,7 @@
 <?php
     echo $this->tag->form(
         array(
-            "records/save",
+            "questions/save",
             "autocomplete" => "off",
             "class" => "form-horizontal"
         )
@@ -38,16 +38,9 @@
 </div>
 
 <div class="form-group">
-    <label for="fieldFile" class="col-sm-2 control-label">Файл</label>
+    <label for="fieldIp" class="col-sm-2 control-label">Ip</label>
     <div class="col-sm-10">
-        <?php echo $this->tag->textField(array("file", "size" => 1000, "class" => "form-control", "id" => "fieldFile")) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldSub" class="col-sm-2 control-label">Субтитри</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(array("subtitles", "size" => 1000, "class" => "form-control", "id" => "fieldSub")) ?>
+        <?php echo $this->tag->textField(array("ip", "size" => 30, "class" => "form-control", "id" => "fieldIp")) ?>
     </div>
 </div>
 
@@ -59,16 +52,9 @@
 </div>
 
 <div class="form-group">
-    <label for="fieldIP" class="col-sm-2 control-label">IP</label>
+    <label for="fieldCreated" class="col-sm-2 control-label">Създаден на</label>
     <div class="col-sm-10">
-        <?php echo $this->tag->textField(array("ip", "size" => 30, "class" => "form-control read-only", "id" => "fieldIP")) ?>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="fieldCreated" class="col-sm-2 control-label">Създадено на</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(array("created", "size" => 30, "class" => "form-control read-only", "id" => "fieldCreated")) ?>
+        <?php echo $this->tag->textField(array("created", "size" => 30, "class" => "form-control", "id" => "fieldCreated")) ?>
     </div>
 </div>
 
