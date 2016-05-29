@@ -154,7 +154,6 @@
                     isFired = true;
                     settings.onEndCallback();
                 }
-                isFired = false;
                 DaysLeft = 0;
                 HoursLeft = 0;
                 MinutesLeft = 0;

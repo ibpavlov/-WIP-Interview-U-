@@ -5,6 +5,7 @@ jQuery(document).ready(function() {
     var video = $('#videoPlayer'); //document.getElementById('videoPlayer');
     var btnStartRecording = $('#startRecordingBtn');
     var btnStopRecording = $('#stopRecordingBtn');
+    var btnStart2 = $('#startButtonInterview');
     var subtitles = new Array();
 
     video.hide();
@@ -18,6 +19,9 @@ jQuery(document).ready(function() {
     btnStartRecording.click(function () {
         startRecording();
         return false;
+    });
+    btnStart2.click(function () {
+        startRecording();
     });
 
 
@@ -47,7 +51,6 @@ jQuery(document).ready(function() {
             console.log("recordRTC Not initialized");
         } else {
             subtitles = new Array();
-            subtitles.push("test");
             recordRTC.startRecording();
             showNextQuestion();
                
@@ -56,16 +59,35 @@ jQuery(document).ready(function() {
 
     };
 
-    var questions = new Array(1,2,3,4);
+    var name = '';
+    var questions1 = new Array(
+        'Може ли да ми кажете нещо повече за себе си?',
+        'С какво сте се занимавали до сега?',
+        'Как стигнахте до тук?');
+    var questions2 = new Array(
+        'Ще ми разкажете ли повече за вашите качества и знания?',
+        'Защо мислите, че сте подходящи за тази позиция?',
+        'Какви са Вашите силни страни?');
+    var questions3 = new Array('Каква е разликата между int и Integer?',
+        'Какво е полиморфизъм и за какво може да го използваш?',
+        'Какво знаеш за транзакциите в базите данни?');
+    var questions5 = 'Имате ли някакви въпроси?';
+    var questions = new Array(
+        questions1[Math.floor(Math.random()*questions1.length)],
+        questions2[Math.floor(Math.random()*questions2.length)],
+        questions3[Math.floor(Math.random()*questions3.length)],
+        questions5);
     var iter = 0;
     var showNextQuestion = function() {
         if(questions.length <= iter) {
+            stopRecording();
+
             iter = 0;   
         }
-        showQuestion("Въпрос " + questions[iter++]);
+        showQuestion(questions[iter++]);
         $('.countdown').html('').ClassyCountdown({
             theme: "flat-colors-very-wide",
-            end: $.now() + 61,
+            end: $.now() + 60,
             onEndCallback: function(){
                 showNextQuestion();
             }
@@ -83,7 +105,6 @@ jQuery(document).ready(function() {
             console.log("Recording is not started");
             alert("Първо трябва да започнете записването!");
         }
-        subtitles.push("test2");
 
         recordRTC.stopRecording(function(videoURL) {
             //video.attr('src',videoURL);
