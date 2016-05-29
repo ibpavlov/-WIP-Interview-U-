@@ -136,7 +136,7 @@ $('.carousel').carousel({
 //general questions timer
 $('.generalclock').ClassyCountdown({
     theme: "flat-colors-very-wide",
-    end: $.now() + 10000
+    end: $.now() + 300
 });
     
 
