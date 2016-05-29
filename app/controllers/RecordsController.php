@@ -157,7 +157,7 @@ class RecordsController extends ControllerBase
             return;
         }
 
-        $this->flash->success("record was created successfully");
+        $this->flash->success("записа беше създаден успешно");
 
         $this->dispatcher->forward(array(
             'controller' => "records",
@@ -217,7 +217,7 @@ class RecordsController extends ControllerBase
             return;
         }
 
-        $this->flash->success("record was updated successfully");
+        $this->flash->success("записа е записан успешно");
 
         $this->dispatcher->forward(array(
             'controller' => "records",
@@ -258,7 +258,7 @@ class RecordsController extends ControllerBase
             return;
         }
 
-        $this->flash->success("record was deleted successfully");
+        $this->flash->success("записа беше изтрит успешно");
 
         $this->dispatcher->forward(array(
             'controller' => "records",
