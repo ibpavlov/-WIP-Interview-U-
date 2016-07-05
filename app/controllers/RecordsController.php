@@ -21,6 +21,7 @@ class RecordsController extends ControllerBase
     {
         if ($this->request->isPost()) {
             $query = Criteria::fromInput($this->di, 'Records', $_POST);
+            $query->andWhere("ip='".$this->request->getClientAddress()."'");
             $this->persistent->parameters = $query->getParams();
         } else {
             if($this->request->hasQuery("page")) {
@@ -141,7 +142,6 @@ class RecordsController extends ControllerBase
         $record->file = $this->request->getPost("file");
         $record->subtitles = $this->request->getPost("subtitles");
         $record->type = $this->request->getPost("type");
-        $record->created = $this->request->getPost("created");
         
 
         if (!$record->save()) {
@@ -199,7 +199,6 @@ class RecordsController extends ControllerBase
         $record->file = $this->request->getPost("file");
         $record->subtitles = $this->request->getPost("subtitles");
         $record->type = $this->request->getPost("type");
-        $record->created = $this->request->getPost("created");
         
 
         if (!$record->save()) {

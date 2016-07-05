@@ -111,7 +111,6 @@ class QuestionsController extends ControllerBase
         $question->name = $this->request->getPost("name");
         $question->ip = $this->request->getPost("ip");
         $question->type = $this->request->getPost("type");
-        $question->created = $this->request->getPost("created");
         
 
         if (!$question->save()) {
@@ -168,7 +167,6 @@ class QuestionsController extends ControllerBase
         $question->name = $this->request->getPost("name");
         $question->ip = $this->request->getPost("ip");
         $question->type = $this->request->getPost("type");
-        $question->created = $this->request->getPost("created");
         
 
         if (!$question->save()) {

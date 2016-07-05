@@ -38,13 +38,6 @@
 </div>
 
 <div class="form-group">
-    <label for="fieldIp" class="col-sm-2 control-label">Ip</label>
-    <div class="col-sm-10">
-        <?php echo $this->tag->textField(array("ip", "size" => 30, "class" => "form-control", "id" => "fieldIp")) ?>
-    </div>
-</div>
-
-<div class="form-group">
     <label for="fieldType" class="col-sm-2 control-label">Тип</label>
     <div class="col-sm-10">
         <?php echo $this->tag->textField(array("type", "size" => 30, "class" => "form-control", "id" => "fieldType")) ?>
@@ -52,9 +45,18 @@
 </div>
 
 <div class="form-group">
+    <label for="fieldIp" class="col-sm-2 control-label">Ip</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(array("ip", "size" => 30, "class" => "form-control", "id" => "fieldIp",
+                                                     "disabled" => "true")) ?>
+    </div>
+</div>
+
+<div class="form-group">
     <label for="fieldCreated" class="col-sm-2 control-label">Създаден на</label>
     <div class="col-sm-10">
-        <?php echo $this->tag->textField(array("created", "size" => 30, "class" => "form-control", "id" => "fieldCreated")) ?>
+        <?php echo $this->tag->textField(array("created", "size" => 30, "class" => "form-control", "id" => "fieldCreated",
+                                                          "disabled" => "true")) ?>
     </div>
 </div>
 

@@ -9,26 +9,31 @@
         Търсени въпроси
     </h1>
     <p>
-        <?php echo $this->tag->linkTo(array("questions/new", "Създай въпрос","style"=>"color: green;")) ?>
+        <?php echo $this->tag->linkTo(array("questions/new", "Създай въпрос", "style" => "color: green;")) ?>
     </p>
 </div>
 
 <?php echo $this->getContent() ?>
 
 <?php
-    echo $this->tag->form(
-        array(
-            "questions/search",
-            "autocomplete" => "off",
-            "class" => "form-horizontal"
-        )
-    );
+echo $this->tag->form(
+    array(
+        "questions/search",
+        "autocomplete" => "off",
+        "class"        => "form-horizontal"
+    )
+);
 ?>
 
 <div class="form-group">
     <label for="fieldId" class="col-sm-2 control-label">№</label>
     <div class="col-sm-10">
-        <?php echo $this->tag->textField(array("id", "type" => "number", "class" => "form-control", "id" => "fieldId")) ?>
+        <?php echo $this->tag->textField(array(
+            "id",
+            "type"  => "number",
+            "class" => "form-control",
+            "id"    => "fieldId"
+        )) ?>
     </div>
 </div>
 
@@ -42,7 +47,14 @@
 <div class="form-group">
     <label for="fieldIp" class="col-sm-2 control-label">Ip</label>
     <div class="col-sm-10">
-        <?php echo $this->tag->textField(array("ip", "size" => 30, "class" => "form-control", "id" => "fieldIp")) ?>
+        <?php echo $this->tag->textField(array(
+            "ip",
+            "size"     => 30,
+            "class"    => "form-control",
+            "id"       => "fieldIp",
+            "disabled" => "true",
+            "value"    => "Вашето IP. Не можете да гледате чужди записи."
+        )) ?>
     </div>
 </div>
 
@@ -56,7 +68,12 @@
 <div class="form-group">
     <label for="fieldCreated" class="col-sm-2 control-label">Създаден на</label>
     <div class="col-sm-10">
-        <?php echo $this->tag->textField(array("created", "size" => 30, "class" => "form-control", "id" => "fieldCreated")) ?>
+        <?php echo $this->tag->textField(array(
+            "created",
+            "size"  => 30,
+            "class" => "form-control",
+            "id"    => "fieldCreated"
+        )) ?>
     </div>
 </div>
 
