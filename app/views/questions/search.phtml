@@ -9,10 +9,18 @@
 <div class="row">
     <nav2>
         <ul class="pager">
-            <li class="previous"><?php echo $this->tag->linkTo(array("questions/index", "Назад","style"=>"color: green;")); ?></li>
-            <li class="next"><?php echo $this->tag->linkTo(array("questions/new", "Създай ","style"=>"color: green;")); ?></li>
+            <li class="previous"><?php echo $this->tag->linkTo(array(
+                    "questions/index",
+                    "Назад",
+                    "style" => "color: green;"
+                )); ?></li>
+            <li class="next"><?php echo $this->tag->linkTo(array(
+                    "questions/new",
+                    "Създай ",
+                    "style" => "color: green;"
+                )); ?></li>
         </ul>
-    </nav>
+        </nav>
 </div>
 
 <div class="page-header">
@@ -24,25 +32,23 @@
 <div class="row">
     <table class="table table-bordered">
         <thead>
-            <tr>
-                <th>№</th>
+        <tr>
+            <th>№</th>
             <th>Име</th>
-            <th>Ip</th>
             <th>Тип</th>
             <th>Създаден на</th>
 
-                <th></th>
-                <th></th>
-            </tr>
+            <th></th>
+            <th></th>
+        </tr>
         </thead>
         <tbody>
         <?php foreach ($page->items as $question): ?>
             <tr>
                 <td><?php echo $question->id ?></td>
-            <td><?php echo $question->name ?></td>
-            <td><?php echo $question->ip ?></td>
-            <td><?php echo $question->type ?></td>
-            <td><?php echo $question->created ?></td>
+                <td><?php echo $question->name ?></td>
+                <td><?php echo $question->type ?></td>
+                <td><?php echo $question->created ?></td>
 
                 <td><?php echo $this->tag->linkTo(array("questions/edit/" . $question->id, "Редактирай")); ?></td>
                 <td><?php echo $this->tag->linkTo(array("questions/delete/" . $question->id, "Изтрий")); ?></td>
@@ -66,6 +72,6 @@
                 <li><?php echo $this->tag->linkTo("questions/search/" . $page->next, "Следваща") ?></li>
                 <li><?php echo $this->tag->linkTo("questions/search/" . $page->last, "Последна") ?></li>
             </ul>
-        </nav>
+            </nav>
     </div>
 </div>

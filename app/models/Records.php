@@ -63,8 +63,8 @@ class Records extends \Phalcon\Mvc\Model
         date_default_timezone_set("Europe/Sofia");
         $this->created = date("Y-m-d H:i:s");
 
-        $ipAddress  = $this->getDI()->getRequest()->getClientAddress();
-        $this->ip   = $ipAddress;
+        $ipAddress = $this->getDI()->getRequest()->getClientAddress();
+        $this->ip = $ipAddress;
     }
 
     /**

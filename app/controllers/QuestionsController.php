@@ -1,5 +1,5 @@
 <?php
- 
+
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Paginator\Adapter\Model as Paginator;
 
@@ -38,16 +38,16 @@ class QuestionsController extends ControllerBase
 
             $this->dispatcher->forward(array(
                 "controller" => "questions",
-                "action" => "index"
+                "action"     => "index"
             ));
 
             return;
         }
 
         $paginator = new Paginator(array(
-            'data' => $questions,
-            'limit'=> 10,
-            'page' => $numberPage
+            'data'  => $questions,
+            'limit' => 10,
+            'page'  => $numberPage
         ));
 
         $this->view->page = $paginator->getPaginate();
@@ -72,11 +72,11 @@ class QuestionsController extends ControllerBase
 
             $question = Questions::findFirstByid($id);
             if (!$question) {
-                $this->flash->error("question was not found");
+                $this->flash->error("въпросът не е намерен");
 
                 $this->dispatcher->forward(array(
                     'controller' => "questions",
-                    'action' => 'index'
+                    'action'     => 'index'
                 ));
 
                 return;
@@ -89,7 +89,7 @@ class QuestionsController extends ControllerBase
             $this->tag->setDefault("ip", $question->ip);
             $this->tag->setDefault("type", $question->type);
             $this->tag->setDefault("created", $question->created);
-            
+
         }
     }
 
@@ -101,7 +101,7 @@ class QuestionsController extends ControllerBase
         if (!$this->request->isPost()) {
             $this->dispatcher->forward(array(
                 'controller' => "questions",
-                'action' => 'index'
+                'action'     => 'index'
             ));
 
             return;
@@ -111,7 +111,7 @@ class QuestionsController extends ControllerBase
         $question->name = $this->request->getPost("name");
         $question->ip = $this->request->getPost("ip");
         $question->type = $this->request->getPost("type");
-        
+
 
         if (!$question->save()) {
             foreach ($question->getMessages() as $message) {
@@ -120,7 +120,7 @@ class QuestionsController extends ControllerBase
 
             $this->dispatcher->forward(array(
                 'controller' => "questions",
-                'action' => 'new'
+                'action'     => 'new'
             ));
 
             return;
@@ -130,7 +130,7 @@ class QuestionsController extends ControllerBase
 
         $this->dispatcher->forward(array(
             'controller' => "questions",
-            'action' => 'index'
+            'action'     => 'index'
         ));
     }
 
@@ -144,7 +144,7 @@ class QuestionsController extends ControllerBase
         if (!$this->request->isPost()) {
             $this->dispatcher->forward(array(
                 'controller' => "questions",
-                'action' => 'index'
+                'action'     => 'index'
             ));
 
             return;
@@ -154,11 +154,11 @@ class QuestionsController extends ControllerBase
         $question = Questions::findFirstByid($id);
 
         if (!$question) {
-            $this->flash->error("question does not exist " . $id);
+            $this->flash->error("Този въпрос не съществува: " . $id);
 
             $this->dispatcher->forward(array(
                 'controller' => "questions",
-                'action' => 'index'
+                'action'     => 'index'
             ));
 
             return;
@@ -167,7 +167,7 @@ class QuestionsController extends ControllerBase
         $question->name = $this->request->getPost("name");
         $question->ip = $this->request->getPost("ip");
         $question->type = $this->request->getPost("type");
-        
+
 
         if (!$question->save()) {
 
@@ -177,8 +177,8 @@ class QuestionsController extends ControllerBase
 
             $this->dispatcher->forward(array(
                 'controller' => "questions",
-                'action' => 'edit',
-                'params' => array($question->id)
+                'action'     => 'edit',
+                'params'     => array($question->id)
             ));
 
             return;
@@ -188,7 +188,7 @@ class QuestionsController extends ControllerBase
 
         $this->dispatcher->forward(array(
             'controller' => "questions",
-            'action' => 'index'
+            'action'     => 'index'
         ));
     }
 
@@ -201,11 +201,11 @@ class QuestionsController extends ControllerBase
     {
         $question = Questions::findFirstByid($id);
         if (!$question) {
-            $this->flash->error("question was not found");
+            $this->flash->error("Този въпрос не съществува");
 
             $this->dispatcher->forward(array(
                 'controller' => "questions",
-                'action' => 'index'
+                'action'     => 'index'
             ));
 
             return;
@@ -219,17 +219,17 @@ class QuestionsController extends ControllerBase
 
             $this->dispatcher->forward(array(
                 'controller' => "questions",
-                'action' => 'search'
+                'action'     => 'search'
             ));
 
             return;
         }
 
-        $this->flash->success("въпроса беше изтрит успешно");
+        $this->flash->success("Въпроса беше изтрит успешно");
 
         $this->dispatcher->forward(array(
             'controller' => "questions",
-            'action' => "index"
+            'action'     => "index"
         ));
     }
 
