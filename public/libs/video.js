@@ -104,6 +104,7 @@ jQuery(document).ready(function() {
         if(recordRTC == null) {
             console.log("Recording is not started");
             alert("Първо трябва да започнете записването!");
+            return;
         }
 
         recordRTC.stopRecording(function(videoURL) {

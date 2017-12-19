@@ -9,10 +9,18 @@
 <div class="row">
     <nav2>
         <ul class="pager">
-            <li class="previous"><?php echo $this->tag->linkTo(array("records/index", "Назад","style"=>"color: green;")); ?></li>
-            <li class="next"><?php echo $this->tag->linkTo(array("records/new", "Създай","style"=>"color: green;")); ?></li>
+            <li class="previous"><?php echo $this->tag->linkTo(array(
+                    "records/index",
+                    "Назад",
+                    "style" => "color: green;"
+                )); ?></li>
+            <li class="next"><?php echo $this->tag->linkTo(array(
+                    "records/new",
+                    "Създай",
+                    "style" => "color: green;"
+                )); ?></li>
         </ul>
-    </nav>
+        </nav>
 </div>
 
 <div class="page-header">
@@ -24,26 +32,26 @@
 <div class="row">
     <table class="table table-bordered">
         <thead>
-            <tr>
-                <th>№</th>
+        <tr>
+            <th>№</th>
             <th>Име (Файл)</th>
             <th>Тип</th>
             <th>IP</th>
             <th>Създаден на</th>
 
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
         </thead>
         <tbody>
         <?php foreach ($page->items as $record): ?>
             <tr>
                 <td><?php echo $record->id ?></td>
-            <td title="<?php echo $record->file ?>"><?php echo $record->name ?></td>
-            <td><?php echo $record->type ?></td>
-            <td><?php echo $record->ip ?></td>
-            <td><?php echo $record->created ?></td>
+                <td title="<?php echo $record->file ?>"><?php echo $record->name ?></td>
+                <td><?php echo $record->type ?></td>
+                <td><?php echo $record->ip ?></td>
+                <td><?php echo $record->created ?></td>
 
                 <td><?php echo $this->tag->linkTo(array("records/view/" . $record->id, "Преглед")); ?></td>
                 <td><?php echo $this->tag->linkTo(array("records/edit/" . $record->id, "Редакция")); ?></td>
@@ -68,6 +76,6 @@
                 <li><?php echo $this->tag->linkTo("records/search/" . $page->next, "Следваща") ?></li>
                 <li><?php echo $this->tag->linkTo("records/search/" . $page->last, "Последна") ?></li>
             </ul>
-        </nav>
+            </nav>
     </div>
 </div>

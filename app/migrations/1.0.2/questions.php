@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 use Phalcon\Db\Column;
 use Phalcon\Db\Index;
@@ -22,45 +22,45 @@ class QuestionsMigration_102 extends Migration
                     new Column(
                         'id',
                         array(
-                            'type' => Column::TYPE_INTEGER,
-                            'unsigned' => true,
-                            'notNull' => true,
+                            'type'          => Column::TYPE_INTEGER,
+                            'unsigned'      => true,
+                            'notNull'       => true,
                             'autoIncrement' => true,
-                            'size' => 10,
-                            'first' => true
+                            'size'          => 10,
+                            'first'         => true
                         )
                     ),
                     new Column(
                         'name',
                         array(
-                            'type' => Column::TYPE_VARCHAR,
-                            'size' => 500,
+                            'type'  => Column::TYPE_VARCHAR,
+                            'size'  => 500,
                             'after' => 'id'
                         )
                     ),
                     new Column(
                         'ip',
                         array(
-                            'type' => Column::TYPE_VARCHAR,
-                            'size' => 100,
+                            'type'  => Column::TYPE_VARCHAR,
+                            'size'  => 100,
                             'after' => 'name'
                         )
                     ),
                     new Column(
                         'type',
                         array(
-                            'type' => Column::TYPE_VARCHAR,
-                            'size' => 50,
+                            'type'  => Column::TYPE_VARCHAR,
+                            'size'  => 50,
                             'after' => 'ip'
                         )
                     ),
                     new Column(
                         'created',
                         array(
-                            'type' => Column::TYPE_TIMESTAMP,
+                            'type'    => Column::TYPE_TIMESTAMP,
                             'default' => "CURRENT_TIMESTAMP",
-                            'size' => 1,
-                            'after' => 'type'
+                            'size'    => 1,
+                            'after'   => 'type'
                         )
                     )
                 ),
@@ -68,9 +68,9 @@ class QuestionsMigration_102 extends Migration
                     new Index('PRIMARY', array('id'), null)
                 ),
                 'options' => array(
-                    'TABLE_TYPE' => 'BASE TABLE',
-                    'AUTO_INCREMENT' => '33',
-                    'ENGINE' => 'MyISAM',
+                    'TABLE_TYPE'      => 'BASE TABLE',
+                    'AUTO_INCREMENT'  => '33',
+                    'ENGINE'          => 'MyISAM',
                     'TABLE_COLLATION' => 'utf8_general_ci'
                 ),
             )
