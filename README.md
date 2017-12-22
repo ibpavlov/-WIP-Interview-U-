@@ -25,7 +25,7 @@
 
 1. Като инициализирате [composer](https://getcomposer.org/) 
 `composer install`
-2. Трябва да нагласите сървъра ви да върви от /public. Можете директно да използвате [PHP Build in Server](http://php.net/manual/en/features.commandline.webserver.php)     
+2. Можете директно да използвате [PHP Build in Server](http://php.net/manual/en/features.commandline.webserver.php)     
 ``php -S localhost:8000 -t public .htrouter.php``    
 3. Да качите базата данни от папка /scheme където желаете - localhost или remote
 4. Да създадете копие на файла /app/config/config.dist.php като config.php и да попълните вашите данни
