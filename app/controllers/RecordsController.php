@@ -304,7 +304,7 @@ class RecordsController extends ControllerBase
                                     $minute2 = "0" . $next;
                                 } else {
                                     $minute2 = $next;
-                                }
+                                } //switch minutes
                                 fwrite($myfile, "00:" . $minute . ":00.000 --> 00:" . $minute2 . ":00.000\n");
                                 fwrite($myfile, $row . "\n");
                                 fwrite($myfile, "\n");

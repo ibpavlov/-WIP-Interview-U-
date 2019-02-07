@@ -7,6 +7,7 @@ jQuery(document).ready(function() {
     var btnStopRecording = $('#stopRecordingBtn');
     var btnStart2 = $('#startButtonInterview');
     var subtitles = new Array();
+    var btnNextQuestion = $('#nextButtonInterview');
 
     video.hide();
 
@@ -14,8 +15,6 @@ jQuery(document).ready(function() {
         stopRecording();
         return false;
     });
-
-
     btnStartRecording.click(function () {
         startRecording();
         return false;
@@ -23,19 +22,19 @@ jQuery(document).ready(function() {
     btnStart2.click(function () {
         startRecording();
     });
-
-
-
+    btnNextQuestion.click(function() {
+        showNextQuestion();
+    });
 
     var successCallback = function (stream) {
+        video.show();
+        video.srcObject = stream;
         console.log("Success");
         // RecordRTC usage goes here
-
         var options = {
-          mimeType: 'video/webm', // or video/mp4 or audio/ogg
-          audioBitsPerSecond: 128000,
-          videoBitsPerSecond: 128000,
-          bitsPerSecond: 128000 // if this line is provided, skip above two
+          recorderType: MediaStreamRecorder,
+          mimeType: 'video/webm',
+            timeSlice: 1000 // pass this parameter
         };
         recordRTC = RecordRTC(stream, options);
 
@@ -85,7 +84,7 @@ jQuery(document).ready(function() {
             iter = 0;   
         }
         showQuestion(questions[iter++]);
-        $('.countdown').html('').ClassyCountdown({
+        var classtCountDown = $('.countdown').html('<br />').ClassyCountdown({
             theme: "flat-colors-very-wide",
             end: $.now() + 60,
             onEndCallback: function(){
@@ -134,7 +133,7 @@ jQuery(document).ready(function() {
                     $('.interviewwindow').hide();
                     video.show();
                     video.attr('src',file.video);
-                    window.open(location.href + fName);
+                    //window.open(location.href + fName);
                 });
              });
         });

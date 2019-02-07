@@ -77,7 +77,10 @@
         settings = $.extend(true, settings, options);
         prepare();
         doTick();
-        setInterval(doTick, 1000);
+        if(typeof document.intervalClassyCounter !== "undefined") {
+            clearInterval(document.intervalClassyCounter);
+        }
+        document.intervalClassyCounter = setInterval(doTick, 1000);
         doResponsive();
         function prepare() {
             element.html('<div class="ClassyCountdown-wrapper">' +
